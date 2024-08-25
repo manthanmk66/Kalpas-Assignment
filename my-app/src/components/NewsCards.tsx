@@ -20,7 +20,8 @@ const ArticlesList: React.FC<ArticlesListProps> = ({ viewMode }) => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const articlesPerPage = 6;
+
+  const articlesPerPage = viewMode === "list" ? 4 : 6;
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -49,7 +50,6 @@ const ArticlesList: React.FC<ArticlesListProps> = ({ viewMode }) => {
     return new Date(dateString).toLocaleDateString("en-GB", options);
   };
 
-  // Calculate the articles to display on the current page
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
   const currentArticles = articles.slice(
@@ -93,7 +93,7 @@ const ArticlesList: React.FC<ArticlesListProps> = ({ viewMode }) => {
                 : "bg-white rounded-lg hover:shadow-lg"
             }`}
           >
-            <div className="absolute top-2 right-2 text-gray-500 cursor-pointer">
+            <div className="absolute text-gray-500 cursor-pointer top-2 right-2">
               <FaTimes />
             </div>
             <a
@@ -140,15 +140,15 @@ const ArticlesList: React.FC<ArticlesListProps> = ({ viewMode }) => {
         <button
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
-          className="mx-2 p-2 text-white bg-gray-700 rounded hover:bg-gray-600 disabled:bg-gray-400"
+          className="p-2 mx-2 text-white bg-gray-700 rounded hover:bg-gray-600 disabled:bg-gray-400"
         >
           <FaChevronLeft />
         </button>
-        <span className="mx-2 p-2 text-gray-700">{`Page ${currentPage} of ${totalPages}`}</span>
+        <span className="p-2 mx-2 text-gray-700">{`Page ${currentPage} of ${totalPages}`}</span>
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
-          className="mx-2 p-2 text-white bg-gray-700 rounded hover:bg-gray-600 disabled:bg-gray-400"
+          className="p-2 mx-2 text-white bg-gray-700 rounded hover:bg-gray-600 disabled:bg-gray-400"
         >
           <FaChevronRight />
         </button>

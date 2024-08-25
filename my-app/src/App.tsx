@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <div className="flex h-screen">
+      <div className="flex h-screen bg-primary">
         <Sidebar
           onViewModeChange={handleViewModeChange}
           currentViewMode={viewMode}

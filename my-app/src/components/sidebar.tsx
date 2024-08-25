@@ -23,7 +23,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   return (
-    <aside className="w-64 p-6 bg-white border-r shadow-lg">
+    <aside className="w-64 h-screen p-6 bg-white border-r shadow-lg">
       <header className="flex items-center gap-4 mb-10">
         <img
           src="/avatar.png"
@@ -37,8 +37,8 @@ const Sidebar: React.FC<SidebarProps> = ({
       </header>
 
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">View Toggle</h2>
-        <div className="flex items-center gap-4 bg-gray-100 p-4 rounded-lg">
+        <h2 className="mb-4 text-xl font-bold text-gray-800">View Toggle</h2>
+        <div className="flex items-center gap-4 p-4 bg-gray-100 rounded-lg">
           <button
             onClick={toggleViewMode}
             aria-label="List view"
@@ -61,12 +61,12 @@ const Sidebar: React.FC<SidebarProps> = ({
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-gray-800 mb-4">
+        <h2 className="mb-4 text-xl font-bold text-gray-800">
           Have a Feedback?
         </h2>
         <button
           onClick={handleclick}
-          className="w-full py-3 text-center text-white bg-emerald-500 rounded-lg hover:bg-emerald-400"
+          className="w-full py-3 text-center text-white rounded-lg bg-emerald-500 hover:bg-emerald-400"
         >
           We're Listening!
         </button>
