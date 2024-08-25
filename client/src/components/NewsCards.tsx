@@ -31,6 +31,7 @@ const ArticlesList: React.FC<ArticlesListProps> = ({ viewMode }) => {
         );
         const data = await response.json();
         setArticles(data.articles);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching articles:", error);
       } finally {
